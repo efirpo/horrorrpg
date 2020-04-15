@@ -1,11 +1,11 @@
 export class Character {
 
   constructor() {
-    // this.name = "";
-    // this.profession = "";
-    // this.baseStats = [5, 5, 5, 5, 10]
-    // this.inventory = [];
-    // this.level = 1;
+    this.name = "";
+    this.profession = "";
+    this.baseStats = [5, 5, 5, 5, 10]
+    this.inventory = [];
+    this.level = 1;
 
   };
   // Perception[0]
