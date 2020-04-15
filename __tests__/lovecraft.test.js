@@ -18,43 +18,31 @@ describe('Game', () => {
     game.character = character;
     expect(game.character.name).toEqual("Pickman");
   })
+  test('should give character object stat array inside game object based on character profession', () => {
+    let game = new Game;
+    let character = new Character("Pickman", "Artist");
+    game.character = character;
+    game.createCharacter();
+    expect(game.character.baseStats).toEqual([7, 4, 3, 8, 12])
+  })
+  test('should give character object inventory array inside game object', () => {
+    let game = new Game;
+    let character = new Character("Pickman", "Artist");
+    game.character = character;
+    game.createCharacter();
+    expect(game.character.inventory).toEqual(["sketchpad", "ink"])
+  })
+  test('should give character object new level based upon xp', () => {
+    let game = new Game;
+    let character = new Character("Pickman", "Artist");
+    game.character = character;
+    game.character.xp += 10;
+    game.levelUp();
+    console.log(game.character);
+    console.log(game.character.level);
+    expect(game.character.level).toEqual(2);
+  })
 
-  //   test('should create new character', () => {
-  //     let game = new Game;
-  //     expect(character.name).toEqual("");
-  //     expect(character.profession).toEqual("");
-  //     expect(character.baseStats).toEqual([]);
-  //     expect(character.inventory).toEqual([]);
-  //     expect(character.level).toEqual(1);
-  //     expect(character.xp).toEqual(0);
-  //   });
-
-  //   test('should create new character with a name and profession', () => {
-  //     let character = new Character;
-  //     character.createCharacter("Pickman", "Artist");
-  //     expect(character.name).toEqual("Pickman");
-  //     expect(character.profession).toEqual("Artist");
-  //   });
-
-  //   test('should create a new character with stats based on profession', () => {
-  //     let character = new Character;
-  //     character.createCharacter("Pickman", "Artist");
-  //     expect(character.baseStats).toEqual([7, 4, 3, 8, 12]);
-  //   });
-
-  //   test('should create new character with inventory based on profession', () => {
-  //     let character = new Character;
-  //     character.createCharacter("Pickman", "Artist");
-  //     expect(character.inventory).toEqual(["sketchpad", "ink"]);
-  //   })
-
-  //   test('should alter character.level based on character.xp', () => {
-  //     let character = new Character;
-  //     character.xp += 10;
-  //     character.levelUp();
-  //     expect(character.level).toEqual(2);
-  //   })
-  // })
 
   // describe('Challenges', () => {
 

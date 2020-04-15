@@ -22,6 +22,13 @@ export class Game {
       this.character.inventory.push("stim-pack", "torch");
     }
   };
+
+  levelUp() {
+    let xpcheck = (this.xp / 5)
+    if (this.character.xp % 5 === 0) {
+      this.character.level += xpcheck
+    }
+  }
   // stat indexes
   // Perception[0]
   // Grit[1]
@@ -55,12 +62,7 @@ export class Character {
 
 
 
-//   levelUp() {
-//     let xpcheck = (this.xp / 5)
-//     if (this.character.xp % 5 === 0) {
-//       this.character.level = xpcheck
-//     }
-//   }
+
 
 //   randomEncounter() {
 //     let encounterChance = Math.ceil(Math.random() * 3);
