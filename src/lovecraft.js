@@ -16,9 +16,9 @@ export class Character {
 
 
   createCharacter(name, profession) {
-    // this.name = name;
-    // this.profession = profession;
-  }
+    this.name = name;
+    this.profession = profession;
+  };
 }
 //   // Detective
 //   // Scholar

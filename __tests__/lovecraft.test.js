@@ -16,6 +16,6 @@ describe('Character', () => {
     character.createCharacter("Pickman", "Artist");
     expect(character.name).toEqual("Pickman");
     expect(character.profession).toEqual("Artist");
-  })
+  });
 
 })
