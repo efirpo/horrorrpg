@@ -38,10 +38,13 @@ describe('Game', () => {
     game.character = character;
     game.character.xp += 10;
     game.levelUp();
-    console.log(game.character);
-    console.log(game.character.level);
     expect(game.character.level).toEqual(2);
   })
+  test('should create new Challenge object', () => {
+    let challenge = new Challenge;
+    expect(challenge.reqItems).toEqual([]);
+  })
+
 
 
   // describe('Challenges', () => {
