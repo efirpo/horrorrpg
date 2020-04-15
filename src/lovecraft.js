@@ -6,8 +6,10 @@ export class Character {
     this.baseStats = []
     this.inventory = [];
     this.level = 1;
+    this.xp = 0;
 
   };
+  // stat indexes
   // Perception[0]
   // Grit[1]
   // Strength[2]
@@ -23,13 +25,31 @@ export class Character {
       this.inventory.push("sketchpad", "ink")
     } else if (this.profession = "Detective") {
       this.baseStats = [7, 6, 3, 6, 11];
+      this.inventory.push("hand-lens", "lighter")
     } else if (this.profession = "Scholar") {
       this.baseStats = [6, 3, 4, 9, 7];
+      this.inventory.push("arcane-page", "candle")
     } else if (this.profession = "Soldier") {
       this.baseStats = [6, 8, 6, 2, 8];
+      this.inventory.push("stim-pack", "torch")
     }
   };
 
+  levelUp() {
+    // let xpcheck = (this.xp / 5)
+    // if (this.xp % 5 === 0) {
+    //   this.level = xpcheck
+    // }
+  }
 
 }
+
+
+
+// export class Puzzle {
+
+//   constructor()
+
+
+// }
 
