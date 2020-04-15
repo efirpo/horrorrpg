@@ -36,20 +36,20 @@ export class Character {
   };
 
   levelUp() {
-    // let xpcheck = (this.xp / 5)
-    // if (this.xp % 5 === 0) {
-    //   this.level = xpcheck
-    // }
+    let xpcheck = (this.xp / 5)
+    if (this.xp % 5 === 0) {
+      this.level = xpcheck
+    }
   }
-
 }
 
+export class Puzzle {
+
+  constructor() {
+    this.reqItems = []
+
+  }
 
 
-// export class Puzzle {
-
-//   constructor()
-
-
-// }
+}
 
