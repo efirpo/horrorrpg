@@ -24,9 +24,9 @@ export class Game {
   };
 
   levelUp() {
-    let xpcheck = (this.xp / 5)
+    const xpcheck = (this.character.xp / 5)
     if (this.character.xp % 5 === 0) {
-      this.character.level += xpcheck
+      this.character.level = xpcheck;
     }
   }
   // stat indexes
