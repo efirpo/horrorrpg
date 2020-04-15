@@ -6,7 +6,7 @@ describe('Character', () => {
     let character = new Character;
     expect(character.name).toEqual("");
     expect(character.profession).toEqual("");
-    expect(character.baseStats).toEqual([5, 5, 5, 5, 10]);
+    expect(character.baseStats).toEqual([]);
     expect(character.inventory).toEqual([]);
     expect(character.level).toEqual(1);
   });
@@ -23,4 +23,10 @@ describe('Character', () => {
     character.createCharacter("Pickman", "Artist");
     expect(character.baseStats).toEqual([7, 4, 3, 8, 12]);
   });
+
+  test('should create new character with inventory based on profession', () => {
+    let character = new Character;
+    character.createCharacter("Pickman", "Artist");
+    expect(character.inventory).toEqual(["sketchpad", "ink"]);
+  })
 })

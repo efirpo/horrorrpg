@@ -3,7 +3,7 @@ export class Character {
   constructor() {
     this.name = "";
     this.profession = "";
-    this.baseStats = [5, 5, 5, 5, 10]
+    this.baseStats = []
     this.inventory = [];
     this.level = 1;
 
@@ -20,6 +20,7 @@ export class Character {
     this.profession = profession;
     if (this.profession = "Artist") {
       this.baseStats = [7, 4, 3, 8, 12];
+      this.inventory.push("sketchpad", "ink")
     } else if (this.profession = "Detective") {
       this.baseStats = [7, 6, 3, 6, 11];
     } else if (this.profession = "Scholar") {
@@ -28,5 +29,7 @@ export class Character {
       this.baseStats = [6, 8, 6, 2, 8];
     }
   };
+
+
 }
 
