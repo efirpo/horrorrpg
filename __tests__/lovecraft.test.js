@@ -44,6 +44,12 @@ describe('Game', () => {
     let challenge = new Challenge;
     expect(challenge.reqItems).toEqual([]);
   })
+  test('should add challenge object to game object', () => {
+    let game = new Game;
+    let challenge = new Challenge;
+    game.challenge = challenge;
+    expect(game.challenge.reqItems).toEqual([]);
+  })
 
 
 
