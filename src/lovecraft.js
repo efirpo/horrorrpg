@@ -52,14 +52,14 @@ export class Challenge {
   }
 
   randomEncounter() {
-    // let encounterChance = Math.ceil(Math.random() * 3);
-    // if (encounterChance === 1) {
-    //   this.id = 1
-    // } else if (encounterChance === 2) {
-    //   this.id = 2;
-    // } else if (encounterChance === 3) {
-    //   this.id = 3;
-    // }
+    let encounterChance = Math.ceil(Math.random() * 3);
+    if (encounterChance === 1) {
+      this.id = 1
+    } else if (encounterChance === 2) {
+      this.id = 2;
+    } else if (encounterChance === 3) {
+      this.id = 3;
+    }
   }
 
 }
