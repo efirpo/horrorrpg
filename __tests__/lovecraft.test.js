@@ -21,6 +21,6 @@ describe('Character', () => {
   test('should create a new character with name, profession, and stats based on profession', () => {
     let character = new Character;
     character.createCharacter("Pickman", "Artist");
-    expect(character.stats).toEqual([7, 6, 3, 6, 11]);
+    expect(character.baseStats).toEqual([7, 4, 3, 8, 12]);
   });
 })

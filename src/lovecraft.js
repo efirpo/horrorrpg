@@ -18,6 +18,9 @@ export class Character {
   createCharacter(name, profession) {
     this.name = name;
     this.profession = profession;
+    if (this.profession = "Artist") {
+      this.baseStats = [7, 4, 3, 8, 12];
+    }
   };
 }
 //   // Detective - [+2, +1, -2, +1, +1]
