@@ -57,6 +57,17 @@ describe('Game', () => {
     game.randomEncounter();
     expect(game.challenge.id).toBeLessThan(4)
   })
+  test('should make character gain xp and new level upon successful encounter when challenge.id =1', () => {
+    let game = new Game;
+    let character = new Character("Pickman", "Artist");
+    let challenge = new Challenge;
+    game.character = character;
+    game.challenge = challenge;
+    game.challenge.id = 1
+    game.randomEncounter();
+    console.log(game.character.xp)
+    expect(game.character.level).toEqual(2);
+  })
 
 
 
