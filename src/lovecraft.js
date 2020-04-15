@@ -20,10 +20,13 @@ export class Character {
     this.profession = profession;
     if (this.profession = "Artist") {
       this.baseStats = [7, 4, 3, 8, 12];
+    } else if (this.profession = "Detective") {
+      this.baseStats = [7, 6, 3, 6, 11];
+    } else if (this.profession = "Scholar") {
+      this.baseStats = [6, 3, 4, 9, 7];
+    } else if (this.profession = "Soldier") {
+      this.baseStats = [6, 8, 6, 2, 8];
     }
   };
 }
-//   // Detective - [+2, +1, -2, +1, +1]
-//   // Scholar - [+1, -2, -1, +4, -3]
-//   // Artist - [+2, -1, -2, +3, +2]
-//   // Soldier - [+1, +3, +1, -3, -2]
+
