@@ -43,7 +43,12 @@ describe('Challenges', () => {
 
   test('should create Challenge object', () => {
     let challenge = new Challenge;
-    expect(challenge.id).toEqual();
     expect(challenge.reqItems).toEqual([]);
+  })
+
+  test('should assign an id of 1-3 to Challenge object', () => {
+    let challenge = new Challenge;
+    challenge.randomEncounter();
+    expect(challenge.id).toBeLessThan(4);
   })
 })
