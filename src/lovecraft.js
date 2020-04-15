@@ -52,12 +52,12 @@ export class Character {
 
 };
 
-// export class Challenge {
-//   constructor() {
-//     this.id;
-//     this.reqItems = [];
-//   };
-// };
+export class Challenge {
+  constructor() {
+    this.id;
+    this.reqItems = [];
+  };
+};
 
 
 
