@@ -50,6 +50,13 @@ describe('Game', () => {
     game.challenge = challenge;
     expect(game.challenge.reqItems).toEqual([]);
   })
+  test('should add id to challenge object within game object between 1 and 3', () => {
+    let game = new Game;
+    let challenge = new Challenge;
+    game.challenge = challenge;
+    game.randomEncounter();
+    expect(game.challenge.id).toBeLessThan(4)
+  })
 
 
 

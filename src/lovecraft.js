@@ -29,15 +29,25 @@ export class Game {
       this.character.level = xpcheck;
     }
   }
-  // stat indexes
-  // Perception[0]
-  // Grit[1]
-  // Strength[2]
-  // Stealth[3]
-  // Sanity[4]
 
-
+  randomEncounter() {
+    let encounterChance = Math.ceil(Math.random() * 3);
+    // this.challenge.id = encounterChance;
+    // if (encounterChance === 1) {
+    //   this.challenge.id = 1
+    // } else if (encounterChance === 2) {
+    //   this.challenge.id = 2;
+    // } else if (encounterChance === 3) {
+    //   this.challenge.id = 3;
+  }
 };
+    // stat indexes
+    // Perception[0]
+    // Grit[1]
+    // Strength[2]
+    // Stealth[3]
+    // Sanity[4]
+}
 
 export class Character {
   constructor(name, profession) {
@@ -64,15 +74,7 @@ export class Challenge {
 
 
 
-//   randomEncounter() {
-//     let encounterChance = Math.ceil(Math.random() * 3);
-//     if (encounterChance === 1) {
-//       this.challenge.id = 1
-//     } else if (encounterChance === 2) {
-//       this.challenge.id = 2;
-//     } else if (encounterChance === 3) {
-//       this.challenge.id = 3;
-//     }
+
 
 //     if (this.challenge.id === 1) {
 
