@@ -1,11 +1,24 @@
 import { Game } from './../src/lovecraft.js'
+import { Character } from './../src/lovecraft.js'
+import { Challenge } from './../src/lovecraft.js'
 
 describe('Game', () => {
 
   test('should create a new game object', () => {
     let game = new Game;
-    expect(game.character.name).toEqual("");
+    expect(game.character).toEqual({});
   })
+  test('should create new character', () => {
+    let character = new Character("Pickman", "Artist");
+    expect(character.name).toEqual("Pickman");
+  })
+  test('should add new character to game object as nested object', () => {
+    let game = new Game;
+    let character = new Character("Pickman", "Artist");
+    game.character = character;
+    expect(game.character.name).toEqual("Pickman");
+  })
+
   //   test('should create new character', () => {
   //     let game = new Game;
   //     expect(character.name).toEqual("");
