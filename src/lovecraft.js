@@ -34,35 +34,32 @@ export class Game {
     // let encounterChance = Math.ceil(Math.random() * 3);
     // this.challenge.id = encounterChance;
     if (this.challenge.id === 1) {
-      let difficulty = 56
-      let characterRoll = 57
+      let difficulty = (Math.ceil(Math.random() * 100) * 3);
+      let characterRoll = (this.character.baseStats[3] * (Math.ceil(Math.random() * 100)))
       if (characterRoll >= difficulty) {
         this.character.xp += 10;
         this.levelUp();
       }
     }
-    // (Math.ceil(Math.random() * 100) * 3);
-    // (this.character.baseStats[3] * (Math.ceil(Math.random() * 100)))
 
-  }
-  // if (encounterChance === 1) {
-  //   this.challenge.id = 1
-  // } else if (encounterChance === 2) {
-  //   this.challenge.id = 2;
-  // } else if (encounterChance === 3) {
-  //   this.challenge.id = 3;
+    // if (encounterChance === 1) {
+    //   this.challenge.id = 1
+    // } else if (encounterChance === 2) {
+    //   this.challenge.id = 2;
+    // } else if (encounterChance === 3) {
+    //   this.challenge.id = 3;
 
 
-  // if (this.challenge.id === 1){
-  //    let winRating = 3 * random Number(1-100)
-  //    let characterRoll = this.character.baseStats[3] * random number(1-100)
-  //    if ( characterRoll >= winRating) {
-  //      this.character.xp +=7
-  //      this.levelUp();
-  //    }
-  // }
+    // if (this.challenge.id === 1){
+    //    let winRating = 3 * random Number(1-100)
+    //    let characterRoll = this.character.baseStats[3] * random number(1-100)
+    //    if ( characterRoll >= winRating) {
+    //      this.character.xp +=7
+    //      this.levelUp();
+    //    }
+    // }
 
-};
+  };
 // stat indexes
 // Perception[0]
 // Grit[1]
