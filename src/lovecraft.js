@@ -43,10 +43,11 @@ export class Character {
   }
 }
 
-export class Puzzle {
+export class Challenge {
 
   constructor() {
-    this.reqItems = []
+    //   this.id;
+    //   this.reqItems = []
 
   }
 

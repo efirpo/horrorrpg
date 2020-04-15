@@ -1,4 +1,4 @@
-import { Character } from './../src/lovecraft.js'
+import { Character, Challenge } from './../src/lovecraft.js'
 
 describe('Character', () => {
 
@@ -36,5 +36,14 @@ describe('Character', () => {
     character.xp += 10;
     character.levelUp();
     expect(character.level).toEqual(2);
+  })
+})
+
+describe('Challenges', () => {
+
+  test('should create Challenge object', () => {
+    let challenge = new Challenge;
+    expect(challenge.id).toEqual();
+    expect(challenge.reqItems).toEqual([]);
   })
 })
