@@ -46,8 +46,8 @@ export class Character {
 export class Challenge {
 
   constructor() {
-    //   this.id;
-    //   this.reqItems = []
+    this.id;
+    this.reqItems = []
 
   }
 
