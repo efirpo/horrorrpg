@@ -32,7 +32,7 @@ export class Game {
 
   randomEncounter() {
     let encounterChance = Math.ceil(Math.random() * 3);
-    // this.challenge.id = encounterChance;
+    this.challenge.id = encounterChance;
     // if (encounterChance === 1) {
     //   this.challenge.id = 1
     // } else if (encounterChance === 2) {
@@ -41,13 +41,13 @@ export class Game {
     //   this.challenge.id = 3;
   }
 };
-    // stat indexes
-    // Perception[0]
-    // Grit[1]
-    // Strength[2]
-    // Stealth[3]
-    // Sanity[4]
-}
+// stat indexes
+// Perception[0]
+// Grit[1]
+// Strength[2]
+// Stealth[3]
+// Sanity[4]
+
 
 export class Character {
   constructor(name, profession) {
