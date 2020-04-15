@@ -20,7 +20,7 @@ export class Character {
     this.profession = profession;
   };
 }
-//   // Detective
-//   // Scholar
-//   // Artist
-//   // Soldier
+//   // Detective - [+2, +1, -2, +1, +1]
+//   // Scholar - [+1, -2, -1, +4, -3]
+//   // Artist - [+2, -1, -2, +3, +2]
+//   // Soldier - [+1, +3, +1, -3, -2]
