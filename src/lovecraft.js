@@ -15,13 +15,12 @@ export class Character {
   // Sanity[4]
 
 
-  // createCharacter(name, profession) {
-  //   this.name = name;
-  //   this.profession = profession;
+  createCharacter(name, profession) {
+    // this.name = name;
+    // this.profession = profession;
+  }
 }
 //   // Detective
 //   // Scholar
 //   // Artist
 //   // Soldier
-
-// }
