@@ -100,11 +100,23 @@ export class Game {
       return charInventory.indexOf(item) < 0;
     })
     this.lootDrop = (this.notInInventory[(Math.floor(Math.random() * this.notInInventory.length))])
+    alert("You have found " + lootDrop)
   }
 
   lootPickUp() {
-    this.character.inventory.push(this.lootDrop)
+    if (this.character.inventory.length > 5) {
+      alert("You must drop an item to pick " + lootDrop + " up")
+    } else { this.character.inventory.push(this.lootDrop) }
     // alert(this.lootDrop + " has been added to your inventory")
+  }
+
+  itemDrop(item) {
+    this.character.inventory.forEach(element => {
+      if (item === element) {
+        this.character.inventory.splice(this.character.inventory.indexOf(element), 1);
+        this.loot.push(element);
+      }
+    })
   }
 
   puzzleEncounter() {
