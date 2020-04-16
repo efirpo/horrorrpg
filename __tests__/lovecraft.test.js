@@ -93,6 +93,8 @@ describe('Game', () => {
     game.assignRolls();
     game.challenge.difficulty = 300;
     game.challenge.stealthRoll = 1;
+    game.challenge.perceptionRoll = 1;
+    game.challenge.strengthRoll = 1;
     game.randomEncounter();
     expect(game.character.baseStats[4]).toBeLessThanOrEqual(10)
   })
@@ -106,9 +108,12 @@ describe('Game', () => {
     game.assignRolls();
     game.challenge.difficulty = 1;
     game.challenge.stealthRoll = 300;
+    game.challenge.perceptionRoll = 300;
+    game.challenge.strengthRoll = 300;
     game.randomEncounter();
     expect(game.character.level).toEqual(2)
   })
+
   // test('should make character gain xp and new level upon successful encounter when challenge.id =1', () => {
   //   let game = new Game;
   //   let character = new Character("Pickman", "Artist");
