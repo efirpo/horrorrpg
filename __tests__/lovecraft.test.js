@@ -126,36 +126,14 @@ describe('Game', () => {
     game.challenge.perceptionRoll = 300;
     game.challenge.strengthRoll = 300;
     game.randomEncounter();
-    expect(game.character.baseStats[0]).toEqual(8)
-    expect(game.character.baseStats[1]).toEqual(5)
-    expect(game.character.baseStats[2]).toEqual(4)
-    expect(game.character.baseStats[3]).toEqual(9)
+    expect(game.character.baseStats).toEqual([8, 5, 4, 9, 12])
   })
-
-
-  // test('should make character gain xp and new level upon successful encounter when challenge.id =1', () => {
-  //   let game = new Game;
-  //   let character = new Character("Pickman", "Artist");
-  //   let challenge = new Challenge;
-  //   game.character = character;
-  //   game.challenge = challenge;
-  //   game.challenge.id = 1
-  //   game.randomEncounter();
-  //   console.log(game.character.xp)
-  //   expect(game.character.level).toEqual(2);
-  // })
-
-
-  // describe('Challenges', () => {
-
-  //   test('should create Challenge object', () => {
-  //     let challenge = new Challenge;
-  //     expect(challenge.reqItems).toEqual([]);
-  //   })
-
-  //   test('should assign an id of 1-3 to Challenge object', () => {
-  //     let challenge = new Challenge;
-  //     challenge.randomEncounter();
-  //     expect(challenge.id).toBeLessThan(4);
-  //   })
+  test('should check for specific items through puzzleEncounter method and raise xp and level if items are contained in inventory', () => {
+    let game = new Game;
+    let character = new Character("Pickman, Artist");
+    game.character = character;
+    game.createCharacter();
+    game.character.inventory.push("lighter", "candle")
+    expect(game.inventory).toContain("lighter", "candle")
+  })
 })

@@ -1,3 +1,11 @@
+// baseStat indexes
+// Perception[0]
+// Grit[1]
+// Strength[2]
+// Stealth[3]
+// Sanity[4]
+
+
 export class Game {
 
   constructor() {
@@ -23,18 +31,12 @@ export class Game {
     }
   };
 
-  // stat indexes
-  // Perception[0]
-  // Grit[1]
-  // Strength[2]
-  // Stealth[3]
-  // Sanity[4]
 
   levelUp() {
     const xpcheck = (this.character.xp / 5)
     if (this.character.xp % 5 === 0) {
       this.character.level = xpcheck;
-      for (let i = 0; i <= ((this.character.baseStats.length) - 1); i++) {
+      for (let i = 0; i <= 3; i++) {
         this.character.baseStats[i] += 1
       }
     }
@@ -62,6 +64,7 @@ export class Game {
           this.character.baseStats[4] -= 4;
         } else { this.character.baseStats[4] -= 2 }
       }
+
       // random encounter id 2, stat check: perception ([0])
     } else if (this.challenge.id === 2) {
       if (this.challenge.perceptionRoll >= this.challenge.difficulty) {
@@ -72,6 +75,7 @@ export class Game {
           this.character.baseStats[4] -= 4;
         } else { this.character.baseStats[4] -= 2 };
       }
+
       //random encounter id 3, stat check Strength ([2])
     } else if (this.challenge.id === 3) {
       if (this.challenge.strengthRoll >= this.challenge.difficulty) {
@@ -84,12 +88,18 @@ export class Game {
       };
     };
   };
+
+  puzzleEncounter() {
+    // if (this.character.inventory.includes("lighter", "candle")){
+    //   this.character.xp +=10;
+    //   this.levelUp();
+  }
 };
 
 
-// puzzleEncounter() {
 
-// };
+
+
 
 
 export class Character {
