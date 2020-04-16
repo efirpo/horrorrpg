@@ -113,6 +113,25 @@ describe('Game', () => {
     game.randomEncounter();
     expect(game.character.level).toEqual(2)
   })
+  test('should raise character.baseStats[] +1 based on levelUp method', () => {
+    let game = new Game;
+    let challenge = new Challenge;
+    let character = new Character("Pickman", "Artist")
+    game.challenge = challenge;
+    game.character = character;
+    game.createCharacter();
+    game.assignRolls();
+    game.challenge.difficulty = 1;
+    game.challenge.stealthRoll = 300;
+    game.challenge.perceptionRoll = 300;
+    game.challenge.strengthRoll = 300;
+    game.randomEncounter();
+    expect(game.character.baseStats[0]).toEqual(8)
+    expect(game.character.baseStats[1]).toEqual(5)
+    expect(game.character.baseStats[2]).toEqual(4)
+    expect(game.character.baseStats[3]).toEqual(9)
+  })
+
 
   // test('should make character gain xp and new level upon successful encounter when challenge.id =1', () => {
   //   let game = new Game;

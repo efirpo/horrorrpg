@@ -34,8 +34,12 @@ export class Game {
     const xpcheck = (this.character.xp / 5)
     if (this.character.xp % 5 === 0) {
       this.character.level = xpcheck;
+      // if (this.challenge.id === 1) {
+      //   this.character.baseStats[3] += 1
+
     }
   }
+
   assignRolls() {
     this.challenge.difficulty = (Math.ceil(Math.random() * 100) * 3);
     this.challenge.stealthRoll = (this.character.baseStats[3] * (Math.ceil(Math.random() * 100)))
@@ -67,26 +71,25 @@ export class Game {
         if ((this.challenge.gritRoll) < this.challenge.difficulty) {
           this.character.baseStats[4] -= 4;
         } else { this.character.baseStats[4] -= 2 };
-
-        //random encounter id 3, stat check Strength ([2])
-      } else if (this.challenge.id === 3) {
-        if (this.challenge.strengthRoll >= this.challenge.difficulty) {
-          this.character.xp += 10;
-          this.levelUp();
-        } else if (this.challenge.strengthRoll < this.challenge.difficulty) {
-          if (this.challenge.gritRoll < this.challenge.difficulty) {
-            this.character.baseStats[4] -= 4;
-          } else { this.character.baseStats[4] -= 2 };
-        };
+      }
+      //random encounter id 3, stat check Strength ([2])
+    } else if (this.challenge.id === 3) {
+      if (this.challenge.strengthRoll >= this.challenge.difficulty) {
+        this.character.xp += 10;
+        this.levelUp();
+      } else if (this.challenge.strengthRoll < this.challenge.difficulty) {
+        if (this.challenge.gritRoll < this.challenge.difficulty) {
+          this.character.baseStats[4] -= 4;
+        } else { this.character.baseStats[4] -= 2 };
       };
     };
   };
-
-  puzzleEncounter() {
-
-  }
-
 };
+
+
+// puzzleEncounter() {
+
+// };
 
 
 export class Character {
