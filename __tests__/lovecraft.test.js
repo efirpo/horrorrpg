@@ -42,13 +42,13 @@ describe('Game', () => {
   })
   test('should create new Challenge object', () => {
     let challenge = new Challenge;
-    expect(challenge.reqItems).toEqual([]);
+    expect(challenge.puzzleId).toEqual(1);
   })
   test('should add challenge object to game object', () => {
     let game = new Game;
     let challenge = new Challenge;
     game.challenge = challenge;
-    expect(game.challenge.reqItems).toEqual([]);
+    expect(game.challenge.puzzleId).toEqual(1);
   })
   test('should add id to challenge object within game object between 1 and 3', () => {
     let game = new Game;
@@ -58,7 +58,7 @@ describe('Game', () => {
     game.character = character;
     game.createCharacter();
     game.randomEncounter();
-    expect(game.challenge.id).toBeLessThan(4)
+    expect(game.challenge.encounterId).toBeLessThan(4)
   })
   test('should generate random number between 3-300 in randomEncounter method', () => {
     let game = new Game;
@@ -131,9 +131,12 @@ describe('Game', () => {
   test('should check for specific items through puzzleEncounter method and raise xp and level if items are contained in inventory', () => {
     let game = new Game;
     let character = new Character("Pickman, Artist");
+    let challenge = new Challenge;
+    game.challenge = challenge;
     game.character = character;
     game.createCharacter();
     game.character.inventory.push("lighter", "candle")
-    expect(game.character.inventory).toContain("lighter", "candle")
+    game.puzzleEncounter();
+    expect(game.challenge.puzzleId).toEqual(2)
   })
 })

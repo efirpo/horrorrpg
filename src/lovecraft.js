@@ -51,10 +51,10 @@ export class Game {
   }
 
   randomEncounter() {
-    this.challenge.id = Math.ceil(Math.random() * 3);
+    this.challenge.encounterId = Math.ceil(Math.random() * 3);
 
     // encounter check id 1, stat check: stealth ([3])
-    if (this.challenge.id === 1) {
+    if (this.challenge.encounterId === 1) {
 
       if (this.challenge.stealthRoll >= this.challenge.difficulty) {
         this.character.xp += 10;
@@ -66,7 +66,7 @@ export class Game {
       }
 
       // random encounter id 2, stat check: perception ([0])
-    } else if (this.challenge.id === 2) {
+    } else if (this.challenge.encounterId === 2) {
       if (this.challenge.perceptionRoll >= this.challenge.difficulty) {
         this.character.xp += 10;
         this.levelUp();
@@ -77,7 +77,7 @@ export class Game {
       }
 
       //random encounter id 3, stat check Strength ([2])
-    } else if (this.challenge.id === 3) {
+    } else if (this.challenge.encounterId === 3) {
       if (this.challenge.strengthRoll >= this.challenge.difficulty) {
         this.character.xp += 10;
         this.levelUp();
@@ -90,14 +90,15 @@ export class Game {
   };
 
   puzzleEncounter() {
-    if (this.character.inventory.includes("lighter", "candle")) {
-      this.character.xp += 10;
-      this.levelUp();
-    }
+    if (this.challenge.puzzleId === 1) {
+      if (this.character.inventory.includes("lighter", "candle")) {
+        this.character.xp += 10;
+        this.levelUp();
+        this.challenge.puzzleId += 1
+      } else { alert("You do not have the required items to solve this puzzle") }
+    };
   };
-
-}
-
+};
 
 
 
@@ -117,8 +118,8 @@ export class Character {
 
 export class Challenge {
   constructor() {
-    this.id;
-    this.reqItems = [];
+    this.encounterId;
+    this.puzzleId = 1;
     this.difficulty;
     this.perceptionRoll;
     this.gritRoll;
