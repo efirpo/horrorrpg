@@ -34,9 +34,9 @@ export class Game {
     const xpcheck = (this.character.xp / 5)
     if (this.character.xp % 5 === 0) {
       this.character.level = xpcheck;
-      // if (this.challenge.id === 1) {
-      //   this.character.baseStats[3] += 1
-
+      for (let i = 0; i <= ((this.character.baseStats.length) - 1); i++) {
+        this.character.baseStats[i] += 1
+      }
     }
   }
 
