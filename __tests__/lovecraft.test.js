@@ -152,4 +152,15 @@ describe('Game', () => {
     game.puzzleEncounter();
     expect(game.challenge.puzzleId).toEqual(4);
   })
-})
+  test('Should check if game.lootDrop is only item not in character.inventory compared to game.loot', () => {
+    let game = new Game;
+    let character = new Character("Pickman", "Artist");
+    console.log(character)
+    game.character = character;
+    game.createCharacter();
+    console.log(game.character)
+    game.character.inventory = ["lighter", "candle", "stim-pack", "sketchpad", "ink", "hand-lens", "torch"];
+    game.encounterDrop();
+    expect(game.notInInventory).toContain("arcane-page");
+  });
+});

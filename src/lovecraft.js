@@ -9,13 +9,14 @@
 export class Game {
 
   constructor() {
-    this.character = {}
-    this.challenge = {}
+    this.character = {};
+    this.challenge = {};
+    this.loot = ["arcane-page", "lighter", "sketchpad", "torch", "stim-pack", "hand-lens", "ink", "candle"];
+    this.notInInventory = [];
+    this.lootDrop = "";
   };
 
-  createCharacter(name, profession) {
-    this.character.name = name;
-    this.character.profession = profession;
+  createCharacter() {
     if (this.character.profession = "Artist") {
       this.character.baseStats = [7, 4, 3, 8, 12];
       this.character.inventory.push("sketchpad", "ink");
@@ -59,6 +60,7 @@ export class Game {
       if (this.challenge.stealthRoll >= this.challenge.difficulty) {
         this.character.xp += 10;
         this.levelUp();
+        // alert("You have successfully avoided the dreaded Shoggoth.")
       } else if (this.challenge.stealthRoll < this.challenge.difficulty) {
         if ((this.challenge.gritRoll) < this.challenge.difficulty) {
           this.character.baseStats[4] -= 4;
@@ -70,6 +72,7 @@ export class Game {
       if (this.challenge.perceptionRoll >= this.challenge.difficulty) {
         this.character.xp += 10;
         this.levelUp();
+        // alert("You were able to view the Night-Gaunts without your mind caving in on itself.")
       } else if (this.challenge.perceptionRoll < this.challenge.difficulty) {
         if ((this.challenge.gritRoll) < this.challenge.difficulty) {
           this.character.baseStats[4] -= 4;
@@ -81,6 +84,8 @@ export class Game {
       if (this.challenge.strengthRoll >= this.challenge.difficulty) {
         this.character.xp += 10;
         this.levelUp();
+        // alert("You have successfully beaten back the Mi-Go horde.")
+        // this.encounterDrop();
       } else if (this.challenge.strengthRoll < this.challenge.difficulty) {
         if (this.challenge.gritRoll < this.challenge.difficulty) {
           this.character.baseStats[4] -= 4;
@@ -88,6 +93,19 @@ export class Game {
       };
     };
   };
+
+  encounterDrop() {
+    let charInventory = this.character.inventory
+    this.notInInventory = this.loot.filter(function (item) {
+      return charInventory.indexOf(item) < 0;
+    })
+    this.lootDrop = (this.notInInventory[(Math.floor(Math.random() * this.notInInventory.length))])
+  }
+
+  lootPickUp() {
+    this.character.inventory.push(this.lootDrop)
+    // alert(this.lootDrop + " has been added to your inventory")
+  }
 
   puzzleEncounter() {
     if (this.challenge.puzzleId === 1) {
@@ -103,10 +121,17 @@ export class Game {
         this.challenge.puzzleId += 1
       } else { alert("You do not have the required items to solve this puzzle") }
     } else if (this.challenge.puzzleId === 3) {
-      // if (this.character.level >= 7 && this.character.inventory.includes("arcane-page", "torch", "ink", "sketchpad")){
+      if (this.character.level >= 7 && this.character.inventory.includes("arcane-page", "torch", "ink", "sketchpad")) {
+        this.challenge.puzzleId += 1;
+        this.youWin();
+      };
+    };
+  };
 
-    }
+  youWin() {
+    // alert("You succesfully interrupt the ritual to summon Nyarlathotep and escape the horrors of the Great Old Ones before your mind desolves into a gibbering mess of insanity.")
   }
+
 };
 
 
