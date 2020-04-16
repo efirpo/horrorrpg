@@ -96,6 +96,19 @@ describe('Game', () => {
     game.randomEncounter();
     expect(game.character.baseStats[4]).toBeLessThanOrEqual(10)
   })
+  test('should make character levelUp based on randomEncounter result', () => {
+    let game = new Game;
+    let challenge = new Challenge;
+    let character = new Character("Pickman", "Artist")
+    game.challenge = challenge;
+    game.character = character;
+    game.createCharacter();
+    game.assignRolls();
+    game.challenge.difficulty = 1;
+    game.challenge.stealthRoll = 300;
+    game.randomEncounter();
+    expect(game.character.level).toEqual(2)
+  })
   // test('should make character gain xp and new level upon successful encounter when challenge.id =1', () => {
   //   let game = new Game;
   //   let character = new Character("Pickman", "Artist");
