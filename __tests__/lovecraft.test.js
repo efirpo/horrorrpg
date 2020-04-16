@@ -67,7 +67,7 @@ describe('Game', () => {
     game.challenge = challenge;
     game.character = character;
     game.createCharacter();
-    game.randomEncounter();
+    game.assignRolls();
     console.log(game.challenge.difficulty)
     expect(game.challenge.difficulty).toBeGreaterThanOrEqual(3);
     expect(game.challenge.difficulty).toBeLessThanOrEqual(300)
@@ -79,9 +79,22 @@ describe('Game', () => {
     game.challenge = challenge;
     game.character = character;
     game.createCharacter();
+    game.assignRolls();
+    expect(game.challenge.stealthRoll).toBeGreaterThanOrEqual(8);
+    expect(game.challenge.stealthRoll).toBeLessThanOrEqual(800);
+  })
+  test('should expect character to lose sanity based on randomEncounter result', () => {
+    let game = new Game;
+    let challenge = new Challenge;
+    let character = new Character("Pickman", "Artist")
+    game.challenge = challenge;
+    game.character = character;
+    game.createCharacter();
+    game.assignRolls();
+    game.challenge.difficulty = 300;
+    game.challenge.stealthRoll = 1;
     game.randomEncounter();
-    expect(game.challenge.characterRoll).toBeGreaterThanOrEqual(8);
-    expect(game.challenge.characterRoll).toBeLessThanOrEqual(800);
+    expect(game.character.baseStats[4]).toBeLessThanOrEqual(10)
   })
   // test('should make character gain xp and new level upon successful encounter when challenge.id =1', () => {
   //   let game = new Game;

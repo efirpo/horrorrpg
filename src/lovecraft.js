@@ -36,6 +36,13 @@ export class Game {
       this.character.level = xpcheck;
     }
   }
+  assignRolls() {
+    this.challenge.difficulty = (Math.ceil(Math.random() * 100) * 3);
+    this.challenge.stealthRoll = (this.character.baseStats[3] * (Math.ceil(Math.random() * 100)))
+    this.challenge.perceptionRoll = (this.character.baseStats[0] * (Math.ceil(Math.random() * 100)))
+    this.challenge.strengthRoll = (this.character.baseStats[2] * (Math.ceil(Math.random() * 100)))
+    this.challenge.gritRoll = (this.character.baseStats[1] * (Math.ceil(Math.random() * 100)))
+  }
 
   randomEncounter() {
     let encounterChance = Math.ceil(Math.random() * 3);
@@ -43,20 +50,15 @@ export class Game {
 
     // encounter check id 1, stat check: stealth ([3])
     if (this.challenge.id === 1 || this.challenge.id === 2 || this.challenge.id === 3) {
-      let difficulty = (Math.ceil(Math.random() * 100) * 3);
-      let characterRoll = (this.character.baseStats[3] * (Math.ceil(Math.random() * 100)))
-      {
-        this.challenge.difficulty = difficulty;
-        this.challenge.characterRoll = characterRoll;
+
+      if (this.challenge.stealthRoll >= this.challenge.difficulty) {
+        this.character.xp += 10;
+        this.levelUp();
+      } else if (this.challenge.stealthRoll < this.challenge.difficulty) {
+        if ((this.challenge.gritRoll) < this.challenge.difficulty) {
+          this.character.baseStats[4] -= 4;
+        } else { this.character.baseStats[4] -= 2 }
       }
-      //   if (characterRoll >= difficulty) {
-      //     this.character.xp += 10;
-      //     this.levelUp();
-      //   } else if (characterRoll < difficulty) {
-      //     if ((this.character.baseStats[1] * (Math.ceil(Math.random() * 100))) < difficulty) {
-      //       this.character.baseStats[4] -= 4;
-      //     } else { this.character.baseStats[4] -= 2 }
-      //   }
       //   // random encounter id 2, stat check: perception ([0])
       // } else if (this.challenge.id === 2) {
       //   let difficulty = (Math.ceil(Math.random() * 100) * 3);
@@ -104,6 +106,7 @@ export class Game {
   };
 };
 
+
 export class Character {
   constructor(name, profession) {
     this.name = name;
@@ -122,7 +125,10 @@ export class Challenge {
     this.id;
     this.reqItems = [];
     this.difficulty;
-    this.characterRoll;
+    this.perceptionRoll;
+    this.gritRoll;
+    this.strengthRoll;
+    this.stealthRoll;
   };
 };
 
