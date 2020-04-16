@@ -134,6 +134,6 @@ describe('Game', () => {
     game.character = character;
     game.createCharacter();
     game.character.inventory.push("lighter", "candle")
-    expect(game.inventory).toContain("lighter", "candle")
+    expect(game.character.inventory).toContain("lighter", "candle")
   })
 })

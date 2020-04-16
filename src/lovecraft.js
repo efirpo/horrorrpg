@@ -90,13 +90,13 @@ export class Game {
   };
 
   puzzleEncounter() {
-    // if (this.character.inventory.includes("lighter", "candle")){
-    //   this.character.xp +=10;
-    //   this.levelUp();
-  }
-};
+    if (this.character.inventory.includes("lighter", "candle")) {
+      this.character.xp += 10;
+      this.levelUp();
+    }
+  };
 
-
+}
 
 
 
