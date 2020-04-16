@@ -96,9 +96,19 @@ export class Game {
         this.levelUp();
         this.challenge.puzzleId += 1
       } else { alert("You do not have the required items to solve this puzzle") }
-    };
-  };
+    } else if (this.challenge.puzzleId === 2) {
+      if (this.character.inventory.includes("hand-lens", "arcane-page")) {
+        this.character.xp += 10;
+        this.levelUp();
+        this.challenge.puzzleId += 1
+      } else { alert("You do not have the required items to solve this puzzle") }
+    } else if (this.challenge.puzzleId === 3) {
+      // if (this.character.level >= 7 && this.character.inventory.includes("arcane-page", "torch", "ink", "sketchpad")){
+
+    }
+  }
 };
+
 
 
 

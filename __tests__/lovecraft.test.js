@@ -128,7 +128,7 @@ describe('Game', () => {
     game.randomEncounter();
     expect(game.character.baseStats).toEqual([8, 5, 4, 9, 12])
   })
-  test('should check for specific items through puzzleEncounter method and raise xp and level if items are contained in inventory', () => {
+  test('should check for specific items through puzzleEncounter method and raise character.xp, character.level, and challenge.puzzleId if items are contained in inventory', () => {
     let game = new Game;
     let character = new Character("Pickman, Artist");
     let challenge = new Challenge;
@@ -138,5 +138,18 @@ describe('Game', () => {
     game.character.inventory.push("lighter", "candle")
     game.puzzleEncounter();
     expect(game.challenge.puzzleId).toEqual(2)
+  })
+  test('should check for character level at least 7, specific inventory items, and having completed first two puzzles before passing final puzzle', () => {
+    let game = new Game;
+    let character = new Character("Pickman, Artist");
+    let challenge = new Challenge;
+    game.challenge = challenge;
+    game.character = character;
+    game.createCharacter();
+    game.character.inventory.push("arcane-page", "torch");
+    game.character.level = 7;
+    game.challenge.puzzleId = 3;
+    game.puzzleEncounter();
+    expect(game.challenge.puzzleId).toEqual(4);
   })
 })
