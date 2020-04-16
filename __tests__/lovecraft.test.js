@@ -53,19 +53,36 @@ describe('Game', () => {
   test('should add id to challenge object within game object between 1 and 3', () => {
     let game = new Game;
     let challenge = new Challenge;
+    let character = new Character("Pickman", "Artist")
     game.challenge = challenge;
+    game.character = character;
+    game.createCharacter();
     game.randomEncounter();
     expect(game.challenge.id).toBeLessThan(4)
   })
   test('should generate random number between 3-300 in randomEncounter method', () => {
     let game = new Game;
     let challenge = new Challenge;
+    let character = new Character("Pickman", "Artist")
     game.challenge = challenge;
+    game.character = character;
+    game.createCharacter();
     game.randomEncounter();
+    console.log(game.challenge.difficulty)
     expect(game.challenge.difficulty).toBeGreaterThanOrEqual(3);
     expect(game.challenge.difficulty).toBeLessThanOrEqual(300)
   })
-  test('')
+  test('should generate random number between 8 and 800 for Artist stat in randomEncounter method', () => {
+    let game = new Game;
+    let challenge = new Challenge;
+    let character = new Character("Pickman", "Artist")
+    game.challenge = challenge;
+    game.character = character;
+    game.createCharacter();
+    game.randomEncounter();
+    expect(game.challenge.characterRoll).toBeGreaterThanOrEqual(8);
+    expect(game.challenge.characterRoll).toBeLessThanOrEqual(800);
+  })
   // test('should make character gain xp and new level upon successful encounter when challenge.id =1', () => {
   //   let game = new Game;
   //   let character = new Character("Pickman", "Artist");

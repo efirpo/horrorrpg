@@ -44,9 +44,10 @@ export class Game {
     // encounter check id 1, stat check: stealth ([3])
     if (this.challenge.id === 1 || this.challenge.id === 2 || this.challenge.id === 3) {
       let difficulty = (Math.ceil(Math.random() * 100) * 3);
-      // let characterRoll = (this.character.baseStats[3] * (Math.ceil(Math.random() * 100)))
+      let characterRoll = (this.character.baseStats[3] * (Math.ceil(Math.random() * 100)))
       {
-        this.challenge.difficulty = difficulty
+        this.challenge.difficulty = difficulty;
+        this.challenge.characterRoll = characterRoll;
       }
       //   if (characterRoll >= difficulty) {
       //     this.character.xp += 10;
@@ -121,6 +122,7 @@ export class Challenge {
     this.id;
     this.reqItems = [];
     this.difficulty;
+    this.characterRoll;
   };
 };
 
